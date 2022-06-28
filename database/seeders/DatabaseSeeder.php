@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            role_seeder::class,
+            company_seeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

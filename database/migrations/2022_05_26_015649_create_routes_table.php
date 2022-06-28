@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('departure_datetime');
-            $table->dateTime('arrival_datetime');
+            $table->time('departure_time');
+            $table->date('departure_date');
+            $table->time('arrival_time');
+            $table->date('arrival_date');
+            //$table->dateTime('arrival_datetime');
             $table->string('departure_location');
             $table->string('destination_location');
             $table->integer('number_busseat');

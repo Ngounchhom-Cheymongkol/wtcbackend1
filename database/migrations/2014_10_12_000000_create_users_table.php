@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('role_id');
-            $table->string('username');
+            //$table->unsignedInteger('role_id');
+            $table->string('username')->unique();
             $table->string('full_name');
+            $table->integer('age')->unsigned();
+            $table->integer('phonenumber')->unsigned();
+            //$table->enum('gender', ['male', 'female','Male','Female']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

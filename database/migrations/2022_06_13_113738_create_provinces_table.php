@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        // 
-        Schema::table('users', function (Blueprint $table) {
-            $table->char('api_token', 60)->nullable()->after('password');
+        Schema::create('provinces', function (Blueprint $table) {
+            $table->id();
+            $table->string("province_name");
+            $table->string("description");
+            $table->string("nick_name");
+            $table->timestamps();
         });
     }
 
@@ -26,9 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('api_token');
-        });
+        Schema::dropIfExists('provinces');
     }
 };
