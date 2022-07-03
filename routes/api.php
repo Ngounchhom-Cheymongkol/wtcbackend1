@@ -29,6 +29,9 @@ Route::post('register', [\App\Http\Controllers\AuthController::class, 'register'
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::post('cancelroute/{id}', [\App\Http\Controllers\ProController::class, 'CancelRoute']);
 Route::get('bookingdetail/{id}',[\App\Http\Controllers\UserController::class, 'BookingDetail']);
+    Route::post('getbookinguser', [\App\Http\Controllers\AdminController::class, 'GetBookingUser']);
+
+
 
 Route::get('route',[App\Http\Controllers\ProController::class,'Routelist']);
 Route::get('company',[App\Http\Controllers\ProController::class,'Companylist']);
@@ -63,7 +66,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::post('addroute', [\App\Http\Controllers\AdminController::class, 'AddRoute']);
     Route::get('ownroute', [\App\Http\Controllers\AdminController::class, 'OwnRouteShow']);
     Route::get('ownbooking', [\App\Http\Controllers\UserController::class, 'ViewBooking']);
-
 
     //Manager Work
     Route::post('registeradmin',[\App\Http\Controllers\ManagerController::class, 'RegisterAdmin']);

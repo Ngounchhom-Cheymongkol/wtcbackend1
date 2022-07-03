@@ -55,6 +55,8 @@ class AdminController extends Controller
            ]);
        }
     }
+     
+   
     public function OwnRouteShow()
     {
         $datauser=Auth::user();
@@ -129,6 +131,10 @@ class AdminController extends Controller
         
        $booking = DB::select('select seat_number from bookings where route_id = ?',[$request->route_id]);
        return $booking;
+    } 
+    public function GetBookingUser(Request $request){
+        $booking = DB::select('select bookings.id as booking_id ,users.full_name,users.username,users.email,users.phonenumber,routes.* from bookings INNER JOIN users on bookings.user_id=users.id INNER JOIN routes on bookings.route_id=routes.id where route_id = ?',[$request->route_id]);
+        return $booking;
     }
     public function customerBooking(Request $request)
     {
